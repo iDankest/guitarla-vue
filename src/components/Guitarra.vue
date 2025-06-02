@@ -5,6 +5,7 @@ const props = defineProps({
         required: true
     }
 })
+defineEmits(['agregar-carrito']) //Aqui declaramos el evento
 </script>
 <template>
             <div class="col-md-6 col-lg-4 my-4 row align-items-center">
@@ -16,9 +17,12 @@ const props = defineProps({
                     <p>{{ guitarra.descripcion }}</p>
                     <p class="fw-black text-primary fs-3">${{ guitarra.precio }}</p>
                     <button 
+                        @click="$emit('agregar-carrito')"
+
                         type="button"
                         class="btn btn-dark w-100 "
                     >Agregar al Carrito</button>
+                                            <!-- Aqui emitimos el evento con emit() -->
                 </div>
             </div><!-- FIN GUITARRA -->
 </template>

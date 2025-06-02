@@ -102,7 +102,10 @@ console.log(guitarras.value)
             <Guitarra
                 v-for="guitarra in guitarras"
                 :guitarra="guitarra"
+                @agregar-carrito="agregarCarrito" 
+                
             />
+            <!-- Estamos importando el evento del componente a este otro componente -->
         </div>
     </main>
 
