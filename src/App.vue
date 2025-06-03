@@ -11,7 +11,14 @@ const guitarra = ref({})
 const carrito = ref([])
 onMounted(() => {
     guitarra.value = guitarras.value[3]
+    if(localStorage.getItem('carrito')){
+        carrito.value = JSON.parse(localStorage.getItem('carrito'))
+    }
 })
+
+const  guardarLocalStorage = () => {
+    localStorage.setItem('carrito', JSON.stringify(carrito.value))
+}
 const agregarCarrito = (guitarra) => {
     //Vamos a crear un elemento que compruebe si el producto ya esta en el carrito
     const existeCarrito = carrito.value.findIndex(producto => producto.id === guitarra.id)
@@ -22,6 +29,7 @@ const agregarCarrito = (guitarra) => {
         guitarra.cantidad = 1
         carrito.value.push(guitarra)
     }
+    guardarLocalStorage()
 }
 
 const decrementarCantidad = (id) => {
@@ -43,6 +51,7 @@ const eleminarProducto = (id) => {
 const vaciarCarrito = () => {
     carrito.value = []
 }
+
 
 </script>
 
