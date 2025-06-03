@@ -5,6 +5,7 @@ const props = defineProps({//Agregamos el carrito al Header con props
         required: true
     }
 })
+defineEmits(['decrementar-cantidad', 'incrementar-cantidad'])
 </script>
 <template>
     <header class="py-5 header">
@@ -50,6 +51,7 @@ const props = defineProps({//Agregamos el carrito al Header con props
                                             <button
                                                 type="button"
                                                 class="btn btn-dark"
+                                                @click="$emit('decrementar-cantidad', producto.id)"
                                             >
                                                 -
                                             </button>
@@ -57,6 +59,7 @@ const props = defineProps({//Agregamos el carrito al Header con props
                                             <button
                                                 type="button"
                                                 class="btn btn-dark"
+                                                @click="$emit('incrementar-cantidad', producto.id)"
                                             >
                                                 +
                                             </button>

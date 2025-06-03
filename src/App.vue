@@ -13,7 +13,7 @@ const agregarCarrito = (guitarra) => {
     //Vamos a crear un elemento que compruebe si el producto ya esta en el carrito
     const existeCarrito = carrito.value.findIndex(producto => producto.id === guitarra.id)
     
-    if(existeCarrito >= 0){
+    if(existeCarrito >= 0){//Aqui evita que se repita el producto
         carrito.value[existeCarrito].cantidad++
     }else{
         guitarra.cantidad = 1
@@ -21,11 +21,25 @@ const agregarCarrito = (guitarra) => {
     }
 }
 
+const decrementarCantidad = (id) => {
+    const index = carrito.value.findIndex(producto => producto.id === id)
+    if(carrito.value[index].cantidad <= 1) return //Evita que se pase de 1
+    carrito.value[index].cantidad--
+}
+
+const incrementarCantidad = (id) => {
+    const index = carrito.value.findIndex(producto => producto.id === id)
+    if(carrito.value[index].cantidad >= 5) return //Evita que se pase de 5
+    carrito.value[index].cantidad++
+}
+
 </script>
 
 <template>
     <Header
     :carrito="carrito"
+    @decrementar-cantidad="decrementarCantidad"
+    @incrementar-cantidad="incrementarCantidad"
     />
       
 
