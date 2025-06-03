@@ -36,7 +36,12 @@ const incrementarCantidad = (id) => {
     carrito.value[index].cantidad++
 }
 const eleminarProducto = (id) => {
-    console.log(id)
+    // const index = carrito.value.findIndex(producto => producto.id === id)
+    // carrito.value.splice(index, 1)
+    carrito.value = carrito.value.filter(producto => producto.id !== id)
+}
+const vaciarCarrito = () => {
+    carrito.value = []
 }
 
 </script>
@@ -46,6 +51,7 @@ const eleminarProducto = (id) => {
     :carrito="carrito"
     :guitarra="guitarra"
     @eleminar-producto="eleminarProducto"
+    @vaciar-carrito="vaciarCarrito"
     @decrementar-cantidad="decrementarCantidad"
     @incrementar-cantidad="incrementarCantidad"
     @agregar-carrito="agregarCarrito"
