@@ -22,7 +22,9 @@ const props = defineProps({//Agregamos el carrito al Header con props
                         <img class="img-fluid" src="/img/carrito.png" alt="imagen carrito" />
 
                         <div id="carrito" class="bg-white p-3">
-                            <p class="text-center">El carrito esta vacio</p>
+                            <!-- Esto lo que hace es que cuando pongas algo en el carrito no muestre que este vacio el mismo -->
+                            <p v-if="carrito.length===0" class="text-center">El carrito esta vacio</p>
+                            <!-- Si el carrito tiene algo, entonces muestre la tabla -->
                             <table class="w-100 table">
                                 <thead>
                                     <tr>
