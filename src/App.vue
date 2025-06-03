@@ -35,6 +35,9 @@ const incrementarCantidad = (id) => {
     if(carrito.value[index].cantidad >= 5) return //Evita que se pase de 5
     carrito.value[index].cantidad++
 }
+const eleminarProducto = (id) => {
+    console.log(id)
+}
 
 </script>
 
@@ -42,6 +45,7 @@ const incrementarCantidad = (id) => {
     <Header
     :carrito="carrito"
     :guitarra="guitarra"
+    @eleminar-producto="eleminarProducto"
     @decrementar-cantidad="decrementarCantidad"
     @incrementar-cantidad="incrementarCantidad"
     @agregar-carrito="agregarCarrito"

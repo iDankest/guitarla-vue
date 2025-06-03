@@ -1,4 +1,5 @@
 <script setup>
+import { computed } from 'vue'
 const props = defineProps({//Agregamos el carrito al Header con props
     carrito: {
         type: Array,
@@ -9,7 +10,10 @@ const props = defineProps({//Agregamos el carrito al Header con props
         required: true
     }
 })
-defineEmits(['decrementar-cantidad', 'incrementar-cantidad', 'agregar-carrito'])
+defineEmits(['decrementar-cantidad', 'incrementar-cantidad', 'agregar-carrito', 'eleminar-producto'])
+const totalPagar = computed(() => {
+    return props.carrito.reduce((total ,producto) => total + (producto.cantidad * producto.precio), 0)
+})
 </script>
 <template>
     <header class="py-5 header">
@@ -72,6 +76,7 @@ defineEmits(['decrementar-cantidad', 'incrementar-cantidad', 'agregar-carrito'])
                                             <button
                                                 class="btn btn-danger"
                                                 type="button"
+                                                @click="$emit('eleminar-producto', producto.id)"
                                             >
                                                 X
                                             </button>
@@ -80,7 +85,7 @@ defineEmits(['decrementar-cantidad', 'incrementar-cantidad', 'agregar-carrito'])
                                 </tbody>
                             </table>
 
-                            <p class="text-end">Total pagar: <span class="fw-bold">$899</span></p>
+                            <p class="text-end">Total pagar: <span class="fw-bold">${{ totalPagar }}€</span></p>
                             <button class="btn btn-dark w-100 mt-3 p-2">Vaciar Carrito</button>
                             </div>
                         </div>
