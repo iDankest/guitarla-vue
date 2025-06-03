@@ -25,6 +25,7 @@ const props = defineProps({//Agregamos el carrito al Header con props
                             <!-- Esto lo que hace es que cuando pongas algo en el carrito no muestre que este vacio el mismo -->
                             <p v-if="carrito.length===0" class="text-center">El carrito esta vacio</p>
                             <!-- Si el carrito tiene algo, entonces muestre la tabla -->
+                             <div v-else>
                             <table class="w-100 table">
                                 <thead>
                                     <tr>
@@ -73,6 +74,7 @@ const props = defineProps({//Agregamos el carrito al Header con props
 
                             <p class="text-end">Total pagar: <span class="fw-bold">$899</span></p>
                             <button class="btn btn-dark w-100 mt-3 p-2">Vaciar Carrito</button>
+                            </div>
                         </div>
                     </div>
                 </nav>
