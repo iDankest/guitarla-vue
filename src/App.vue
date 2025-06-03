@@ -7,6 +7,10 @@ const guitarras = ref(db)
 
 console.log(guitarras.value)
 
+const agregarCarrito = (guitarra) => {
+    console.log(guitarra)
+}
+
 </script>
 
 <template>
