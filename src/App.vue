@@ -16,7 +16,9 @@ const agregarCarrito = (guitarra) => {
 </script>
 
 <template>
-    <Header/>
+    <Header
+    :carrito="carrito"
+    />
       
 
     <main class="container-xl mt-5">

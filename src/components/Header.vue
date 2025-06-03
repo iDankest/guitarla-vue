@@ -1,4 +1,10 @@
-<script>
+<script setup>
+const props = defineProps({//Agregamos el carrito al Header con props
+    carrito: {
+        type: Array,
+        required: true
+    }
+})
 </script>
 <template>
     <header class="py-5 header">
