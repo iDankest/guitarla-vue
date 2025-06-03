@@ -10,7 +10,15 @@ const guitarras = ref(db)
 const carrito = ref([])
 
 const agregarCarrito = (guitarra) => {
-    carrito.value.push(guitarra)
+    //Vamos a crear un elemento que compruebe si el producto ya esta en el carrito
+    const existeCarrito = carrito.value.findIndex(producto => producto.id === guitarra.id)
+    
+    if(existeCarrito >= 0){
+        carrito.value[existeCarrito].cantidad++
+    }else{
+        guitarra.cantidad = 1
+        carrito.value.push(guitarra)
+    }
 }
 
 </script>
