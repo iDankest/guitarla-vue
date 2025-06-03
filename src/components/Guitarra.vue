@@ -4,7 +4,9 @@ const props = defineProps({
         type: Object,
         required: true
     }
+    
 })
+
 defineEmits(['agregar-carrito']) //Aqui declaramos el evento
 </script>
 <template>
