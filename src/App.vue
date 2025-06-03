@@ -2,6 +2,8 @@
   import { ref,  reactive } from 'vue'
   import { db } from './data/guitarras'
   import Guitarra from './components/Guitarra.vue'
+  import Header from './components/Header.vue'
+  import Footer from './components/Footer.vue'
 
 const guitarras = ref(db)
 
@@ -14,6 +16,7 @@ const agregarCarrito = (guitarra) => {
 </script>
 
 <template>
+    <Header/>
       
 
     <main class="container-xl mt-5">
@@ -30,7 +33,7 @@ const agregarCarrito = (guitarra) => {
         </div>
     </main>
 
-
+    <Footer/>
 </template>
 
 
