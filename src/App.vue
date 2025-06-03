@@ -1,5 +1,5 @@
 <script setup>
-  import { ref,  reactive, onMounted } from 'vue'
+  import { ref,  reactive, onMounted, watch} from 'vue'
   import { db } from './data/guitarras'
   import Guitarra from './components/Guitarra.vue'
   import Header from './components/Header.vue'
@@ -9,6 +9,9 @@ const guitarras = ref(db)
 const guitarra = ref({})
 
 const carrito = ref([])
+
+watch(carrito, () => guardarLocalStorage(), { deep: true })// { deep: true } para que se actualice el localStorage cuando modifiques el carrito
+
 onMounted(() => {
     guitarra.value = guitarras.value[3]
     if(localStorage.getItem('carrito')){
