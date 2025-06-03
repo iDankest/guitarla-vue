@@ -5,10 +5,10 @@
 
 const guitarras = ref(db)
 
-console.log(guitarras.value)
+const carrito = ref([])
 
 const agregarCarrito = (guitarra) => {
-    console.log(guitarra)
+    carrito.value.push(guitarra)
 }
 
 </script>
